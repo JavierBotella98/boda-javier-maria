@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Paleta base: beige, blanco roto, tonos pastel — elegante y sobria */
+  --color-cream: #faf6ef;
+  --color-cream-dark: #efe6d8;
+  --color-ink: #3a332c;
+  --color-ink-soft: #6b6156;
+
+  /* Acentos "San Juan": terracota, ocre y verde salvia, en versión suavizada */
+  --color-terracotta: #b25b45;
+  --color-terracotta-soft: #d9ab9b;
+  --color-ochre: #c99a44;
+  --color-ochre-soft: #ddc394;
+  --color-sage: #7f8f74;
+  --color-sage-soft: #b9c4ae;
+
+  --background: var(--color-cream);
+  --foreground: var(--color-ink);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-cream: var(--color-cream);
+  --color-cream-dark: var(--color-cream-dark);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-terracotta: var(--color-terracotta);
+  --color-terracotta-soft: var(--color-terracotta-soft);
+  --color-ochre: var(--color-ochre);
+  --color-ochre-soft: var(--color-ochre-soft);
+  --color-sage: var(--color-sage);
+  --color-sage-soft: var(--color-sage-soft);
+  --font-serif: var(--font-heading);
+  --font-sans: var(--font-body);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Guiño decorativo a la fachada geométrica de la Iglesia de San Juan (Málaga):
+   retícula de rombos en terracota / ocre / verde salvia, en tono aguado.
+   Se usa como textura de fondo puntual, nunca como patrón dominante. */
+.bg-pattern-sanjuan {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect width='200' height='200' fill='%23faf6ef'/%3E%3Cpolygon points='50,12 88,50 50,88 12,50' fill='%23d9ab9b'/%3E%3Cpolygon points='150,12 188,50 150,88 112,50' fill='%23ddc394'/%3E%3Cpolygon points='50,112 88,150 50,188 12,150' fill='%23b9c4ae'/%3E%3Cpolygon points='150,112 188,150 150,188 112,150' fill='%23d9ab9b'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
 }
