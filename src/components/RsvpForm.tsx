@@ -31,9 +31,9 @@ export default function RsvpForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
-  function updateCompanionCount(count: number) {
-    const next = Math.max(0, Math.min(15, count));
+  function adjustCompanionCount(delta: number) {
     setCompanions((prev) => {
+      const next = Math.max(0, Math.min(15, prev.length + delta));
       const copy = [...prev];
       while (copy.length < next) copy.push(emptyCompanion());
       copy.length = next;
@@ -185,18 +185,30 @@ export default function RsvpForm() {
           </div>
 
           <div>
-            <label htmlFor="companionCount" className="block text-sm text-ink">
-              Número de acompañantes
-            </label>
-            <input
-              id="companionCount"
-              type="number"
-              min={0}
-              max={15}
-              value={companions.length}
-              onChange={(e) => updateCompanionCount(Number(e.target.value))}
-              className="mt-1 w-24 rounded-md border border-cream-dark bg-white px-3 py-2 text-ink"
-            />
+            <span className="block text-sm text-ink">Número de acompañantes</span>
+            <div className="mt-1 flex items-center gap-4">
+              <button
+                type="button"
+                onClick={() => adjustCompanionCount(-1)}
+                disabled={companions.length <= 0}
+                aria-label="Quitar acompañante"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-terracotta text-lg text-terracotta transition hover:bg-terracotta hover:text-cream disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-terracotta"
+              >
+                −
+              </button>
+              <span className="w-6 text-center font-serif text-xl text-ink">
+                {companions.length}
+              </span>
+              <button
+                type="button"
+                onClick={() => adjustCompanionCount(1)}
+                disabled={companions.length >= 15}
+                aria-label="Añadir acompañante"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-terracotta text-lg text-terracotta transition hover:bg-terracotta hover:text-cream disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-terracotta"
+              >
+                +
+              </button>
+            </div>
 
             {companions.length > 0 && (
               <div className="mt-4 space-y-4">
