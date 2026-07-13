@@ -79,11 +79,12 @@ export const dressCode = {
 };
 
 export const timeline = [
-  { time: "13:00h", event: "Ceremonia religiosa" },
-  { time: "14:30h", event: "Cóctel de bienvenida" },
-  { time: "16:00h", event: "Banquete" },
-  { time: "20:00h", event: "Fiesta y baile" },
-  { time: "[pendiente]", event: "Autobuses de vuelta a Málaga" },
+  { time: "13:00h", event: "Ceremonia religiosa en la Iglesia de San Juan" },
+  { time: "14:30h", event: "Salida de los autobuses hacia la Hacienda" },
+  { time: "15:00h", event: "Cóctel de bienvenida" },
+  { time: "17:00h", event: "Banquete" },
+  { time: "19:00h", event: "Fiesta y baile" },
+  { time: "01:00h", event: "Fin del evento" },
 ];
 
 export const giftRegistry = {
