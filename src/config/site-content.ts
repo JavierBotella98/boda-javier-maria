@@ -74,8 +74,24 @@ export const buses = {
 
 export const dressCode = {
   title: "Código de vestimenta",
-  description:
-    "Etiqueta elegante / formal. Ellas, vestido largo o cocktail; ellos, traje. Evitad el blanco, es el color de la novia 😉.",
+  intro: "Etiqueta elegante / formal.",
+  women: {
+    label: "Ellas",
+    items: [
+      "Vestido largo o de cóctel.",
+      "Evitad el blanco y los colores crema — ese privilegio es solo de la novia 😉.",
+      "Consejo con cariño: si hay césped por la Hacienda, un tacón fino puede complicarse — una cuña o un tacón grueso os lo pondrán más fácil.",
+    ],
+  },
+  men: {
+    label: "Ellos",
+    items: [
+      "Traje (obligatorio).",
+      "Corbata (obligatoria).",
+      "Zapato de vestir (obligatorio).",
+      "Evitad el blanco y los colores crema.",
+    ],
+  },
 };
 
 export const timeline = [
