@@ -16,8 +16,7 @@ export const wedding = {
 
 export const ceremony = {
   name: "Iglesia de San Juan de Málaga",
-  // TODO: sustituir por la dirección postal exacta (ver Google Maps)
-  address: "[Dirección pendiente de confirmar]",
+  address: "C. Cinco Bolas, 9, Distrito Centro, 29005 Málaga",
   mapsQuery: "Iglesia de San Juan de Málaga",
   mapsEmbedUrl:
     "https://www.google.com/maps?q=36.720463,-4.4233903&z=17&output=embed",
@@ -25,8 +24,7 @@ export const ceremony = {
 
 export const venue = {
   name: "Hacienda del Álamo",
-  // TODO: sustituir por la dirección postal exacta (ver Google Maps)
-  address: "[Dirección pendiente de confirmar]",
+  address: "Cam. de Casabermeja, 130, Cdad. Jardín, 29014 Málaga",
   mapsQuery: "Hacienda del Álamo, Málaga",
   mapsEmbedUrl:
     "https://www.google.com/maps?q=36.7647705,-4.421514&z=16&output=embed",
