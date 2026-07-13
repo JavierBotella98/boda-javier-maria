@@ -15,7 +15,7 @@ export const wedding = {
 };
 
 export const ceremony = {
-  name: "Iglesia de San Juan de Málaga",
+  name: "Iglesia de San Juan, Málaga",
   address: "C. Cinco Bolas, 9, Distrito Centro, 29005 Málaga",
   mapsQuery: "Iglesia de San Juan de Málaga",
   coords: { lat: 36.720463, lng: -4.4233903 },
