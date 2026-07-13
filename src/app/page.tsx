@@ -2,6 +2,7 @@ import Link from "next/link";
 import SanJuanPattern from "@/components/SanJuanPattern";
 import Countdown from "@/components/Countdown";
 import AddToCalendarButton from "@/components/AddToCalendarButton";
+import FadeIn from "@/components/FadeIn";
 import { couple, wedding, ceremony } from "@/config/site-content";
 
 export default function Home() {
@@ -37,17 +38,19 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6">
-        <h2 className="font-serif text-2xl text-ink">
-          Estamos deseando celebrarlo con vosotros
-        </h2>
-        <p className="mt-4 text-ink-soft">
-          En esta web encontraréis toda la información sobre la ceremonia, la
-          Hacienda, el alojamiento, el transporte y el formulario para confirmar
-          vuestra asistencia. ¡Gracias por acompañarnos en este día tan
-          especial!
-        </p>
-      </section>
+      <FadeIn>
+        <section className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6">
+          <h2 className="font-serif text-2xl text-ink">
+            Estamos deseando celebrarlo con vosotros
+          </h2>
+          <p className="mt-4 text-ink-soft">
+            En esta web encontraréis toda la información sobre la ceremonia, la
+            Hacienda, el alojamiento, el transporte y el formulario para confirmar
+            vuestra asistencia. ¡Gracias por acompañarnos en este día tan
+            especial!
+          </p>
+        </section>
+      </FadeIn>
     </div>
   );
 }

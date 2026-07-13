@@ -1,4 +1,5 @@
 import PageHeader from "@/components/PageHeader";
+import FadeIn from "@/components/FadeIn";
 import { hotels } from "@/config/site-content";
 
 export default function AlojamientoPage() {
@@ -9,7 +10,7 @@ export default function AlojamientoPage() {
         subtitle="Algunas opciones de hoteles cerca de la Hacienda y de la iglesia"
       />
       <div className="mx-auto max-w-3xl px-4 pb-16 sm:px-6">
-        <div className="grid gap-6 sm:grid-cols-2">
+        <FadeIn className="grid gap-6 sm:grid-cols-2">
           {hotels.map((hotel) => (
             <a
               key={hotel.name}
@@ -22,7 +23,7 @@ export default function AlojamientoPage() {
               <p className="mt-2 text-sm text-ink-soft">{hotel.description}</p>
             </a>
           ))}
-        </div>
+        </FadeIn>
       </div>
     </div>
   );

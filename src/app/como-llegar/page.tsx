@@ -1,4 +1,5 @@
 import PageHeader from "@/components/PageHeader";
+import FadeIn from "@/components/FadeIn";
 import { ceremony, venue } from "@/config/site-content";
 
 function LocationBlock({
@@ -63,19 +64,23 @@ export default function ComoLlegarPage() {
         subtitle="Ubicaciones de la ceremonia y la celebración"
       />
       <div className="mx-auto max-w-3xl px-4 pb-16 sm:px-6">
-        <LocationBlock
-          title={ceremony.name}
-          address={ceremony.address}
-          mapsEmbedUrl={ceremony.mapsEmbedUrl}
-          coords={ceremony.coords}
-        />
-        <LocationBlock
-          title={venue.name}
-          address={venue.address}
-          mapsEmbedUrl={venue.mapsEmbedUrl}
-          coords={venue.coords}
-          note={venue.parkingNote}
-        />
+        <FadeIn>
+          <LocationBlock
+            title={ceremony.name}
+            address={ceremony.address}
+            mapsEmbedUrl={ceremony.mapsEmbedUrl}
+            coords={ceremony.coords}
+          />
+        </FadeIn>
+        <FadeIn>
+          <LocationBlock
+            title={venue.name}
+            address={venue.address}
+            mapsEmbedUrl={venue.mapsEmbedUrl}
+            coords={venue.coords}
+            note={venue.parkingNote}
+          />
+        </FadeIn>
       </div>
     </div>
   );

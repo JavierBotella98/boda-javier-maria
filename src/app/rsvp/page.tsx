@@ -1,5 +1,6 @@
 import PageHeader from "@/components/PageHeader";
 import RsvpForm from "@/components/RsvpForm";
+import FadeIn from "@/components/FadeIn";
 
 export default function RsvpPage() {
   return (
@@ -8,9 +9,9 @@ export default function RsvpPage() {
         title="Confirma tu asistencia"
         subtitle="Rellena el formulario y cuéntanos con quién vienes"
       />
-      <div className="mx-auto max-w-2xl px-4 pb-20 sm:px-6">
+      <FadeIn className="mx-auto max-w-2xl px-4 pb-20 sm:px-6">
         <RsvpForm />
-      </div>
+      </FadeIn>
     </div>
   );
 }

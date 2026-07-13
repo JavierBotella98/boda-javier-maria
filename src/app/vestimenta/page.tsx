@@ -1,4 +1,5 @@
 import PageHeader from "@/components/PageHeader";
+import FadeIn from "@/components/FadeIn";
 import { dressCode } from "@/config/site-content";
 
 function DressCodeCard({ label, items }: { label: string; items: string[] }) {
@@ -22,10 +23,10 @@ export default function VestimentaPage() {
     <div>
       <PageHeader title={dressCode.title} subtitle={dressCode.intro} />
       <div className="mx-auto max-w-3xl px-4 pb-16 sm:px-6">
-        <div className="grid gap-6 sm:grid-cols-2">
+        <FadeIn className="grid gap-6 sm:grid-cols-2">
           <DressCodeCard label={dressCode.women.label} items={dressCode.women.items} />
           <DressCodeCard label={dressCode.men.label} items={dressCode.men.items} />
-        </div>
+        </FadeIn>
       </div>
     </div>
   );
