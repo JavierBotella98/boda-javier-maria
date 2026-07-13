@@ -80,17 +80,11 @@ export const dressCode = {
     items: [
       "Vestido largo o de cóctel.",
       "Evitad el blanco y los colores crema — ese privilegio es solo de la novia 😉.",
-      "Consejo con cariño: si hay césped por la Hacienda, un tacón fino puede complicarse — una cuña o un tacón grueso os lo pondrán más fácil.",
     ],
   },
   men: {
     label: "Ellos",
-    items: [
-      "Traje (obligatorio).",
-      "Corbata (obligatoria).",
-      "Zapato de vestir (obligatorio).",
-      "Evitad el blanco y los colores crema.",
-    ],
+    items: ["Traje.", "Corbata.", "Zapato de vestir."],
   },
 };
 
