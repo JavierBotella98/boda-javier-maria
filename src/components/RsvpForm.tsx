@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import Link from "next/link";
 import { buses, rsvpForm } from "@/config/site-content";
 
 type Companion = {
@@ -102,6 +103,12 @@ export default function RsvpForm() {
           {rsvpForm.confirmationTitle(guestName || "")}
         </p>
         <p className="mt-2 text-ink-soft">{rsvpForm.confirmationMessage}</p>
+        <Link
+          href="/"
+          className="mt-6 inline-block rounded-full bg-terracotta px-6 py-2 text-sm text-cream transition hover:bg-terracotta/90"
+        >
+          Volver al inicio
+        </Link>
       </div>
     );
   }
