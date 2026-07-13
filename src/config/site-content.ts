@@ -102,6 +102,7 @@ export const giftRegistry = {
   message:
     "Vuestra presencia es el mejor regalo, pero si queréis contribuir a nuestro viaje de novios, podéis hacerlo en este número de cuenta:",
   iban: "ES71 0128 8700 1701 0569 4217",
+  bank: "Bankinter",
   accountHolder: "Javier y María",
 };
 

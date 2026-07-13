@@ -1,4 +1,5 @@
 import PageHeader from "@/components/PageHeader";
+import CopyIbanButton from "@/components/CopyIbanButton";
 import { giftRegistry } from "@/config/site-content";
 
 export default function ListaDeBodasPage() {
@@ -12,8 +13,9 @@ export default function ListaDeBodasPage() {
             {giftRegistry.iban}
           </p>
           <p className="mt-1 text-sm text-ink-soft">
-            {giftRegistry.accountHolder}
+            {giftRegistry.bank} · {giftRegistry.accountHolder}
           </p>
+          <CopyIbanButton iban={giftRegistry.iban} />
         </div>
       </div>
     </div>
