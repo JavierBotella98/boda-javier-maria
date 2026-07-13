@@ -18,6 +18,7 @@ export const ceremony = {
   name: "Iglesia de San Juan de Málaga",
   address: "C. Cinco Bolas, 9, Distrito Centro, 29005 Málaga",
   mapsQuery: "Iglesia de San Juan de Málaga",
+  coords: { lat: 36.720463, lng: -4.4233903 },
   mapsEmbedUrl:
     "https://www.google.com/maps?q=36.720463,-4.4233903&z=17&output=embed",
 };
@@ -26,6 +27,7 @@ export const venue = {
   name: "Hacienda del Álamo",
   address: "Cam. de Casabermeja, 130, Cdad. Jardín, 29014 Málaga",
   mapsQuery: "Hacienda del Álamo, Málaga",
+  coords: { lat: 36.7647705, lng: -4.421514 },
   mapsEmbedUrl:
     "https://www.google.com/maps?q=36.7647705,-4.421514&z=16&output=embed",
   parkingNote: "Hay aparcamiento disponible en la Hacienda para coches privados.",
