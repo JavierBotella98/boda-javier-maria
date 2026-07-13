@@ -3,10 +3,18 @@
 import { useEffect, useState } from "react";
 import { wedding } from "@/config/site-content";
 
+const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+
 function getRemaining() {
   const target = new Date(wedding.dateTimeIso).getTime();
-  const diff = Math.max(0, target - Date.now());
+  const diff = target - Date.now();
+
+  if (diff <= 0) {
+    return { arrived: true as const, sameDay: diff > -ONE_DAY_MS };
+  }
+
   return {
+    arrived: false as const,
     days: Math.floor(diff / (1000 * 60 * 60 * 24)),
     hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
     minutes: Math.floor((diff / (1000 * 60)) % 60),
@@ -23,6 +31,14 @@ export default function Countdown() {
     const interval = setInterval(() => setRemaining(getRemaining()), 60_000);
     return () => clearInterval(interval);
   }, []);
+
+  if (remaining.arrived) {
+    return (
+      <p className="font-serif text-2xl text-terracotta sm:text-3xl" suppressHydrationWarning>
+        {remaining.sameDay ? "¡Hoy es el gran día! 🎉" : "¡Ya nos hemos casado! 💍"}
+      </p>
+    );
+  }
 
   const items = [
     { value: remaining.days, label: "días" },
