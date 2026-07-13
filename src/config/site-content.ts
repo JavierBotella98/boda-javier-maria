@@ -15,20 +15,21 @@ export const wedding = {
 };
 
 export const ceremony = {
-  name: "Iglesia de San Juan Bautista",
-  address: "Calle San Juan, s/n, 29005 Málaga",
-  mapsQuery: "Iglesia de San Juan Bautista, Málaga",
-  // TODO: sustituir por el enlace real de Google Maps cuando esté disponible
+  name: "Iglesia de San Juan de Málaga",
+  // TODO: sustituir por la dirección postal exacta (ver Google Maps)
+  address: "[Dirección pendiente de confirmar]",
+  mapsQuery: "Iglesia de San Juan de Málaga",
   mapsEmbedUrl:
-    "https://www.google.com/maps?q=Iglesia+de+San+Juan+Bautista+Malaga&output=embed",
+    "https://www.google.com/maps?q=36.720463,-4.4233903&z=17&output=embed",
 };
 
 export const venue = {
   name: "Hacienda del Álamo",
-  address: "[Dirección pendiente]",
-  mapsQuery: "Hacienda del Alamo Malaga",
+  // TODO: sustituir por la dirección postal exacta (ver Google Maps)
+  address: "[Dirección pendiente de confirmar]",
+  mapsQuery: "Hacienda del Álamo, Málaga",
   mapsEmbedUrl:
-    "https://www.google.com/maps?q=Malaga&output=embed",
+    "https://www.google.com/maps?q=36.7647705,-4.421514&z=16&output=embed",
   parkingNote: "Hay aparcamiento disponible en la Hacienda para coches privados.",
 };
 
