@@ -91,12 +91,12 @@ export const dressCode = {
 };
 
 export const timeline = [
-  { time: "13:00h", event: "Ceremonia religiosa en la Iglesia de San Juan" },
-  { time: "14:30h", event: "Salida de los autobuses hacia la Hacienda" },
-  { time: "15:00h", event: "Cóctel de bienvenida" },
-  { time: "17:00h", event: "Banquete" },
-  { time: "19:00h", event: "Fiesta y baile" },
-  { time: "01:00h", event: "Fin del evento" },
+  { time: "13:00h", event: "Ceremonia religiosa en la Iglesia de San Juan", icon: "⛪" },
+  { time: "14:30h", event: "Salida de los autobuses hacia la Hacienda", icon: "🚌" },
+  { time: "15:00h", event: "Cóctel de bienvenida", icon: "🥂" },
+  { time: "17:00h", event: "Banquete", icon: "🍽️" },
+  { time: "19:00h", event: "Fiesta y baile", icon: "💃" },
+  { time: "01:00h", event: "Fin del evento", icon: "🎉" },
 ];
 
 export const giftRegistry = {
