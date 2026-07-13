@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { couple } from "@/config/site-content";
 
@@ -19,6 +20,7 @@ const links = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 border-b border-cream-dark bg-cream/95 backdrop-blur">
@@ -40,15 +42,21 @@ export default function Navbar() {
         </button>
 
         <nav className="hidden sm:flex sm:items-center sm:gap-4 lg:gap-5">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm text-ink-soft transition hover:text-terracotta"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {links.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={isActive ? "page" : undefined}
+                className={`text-sm transition hover:text-terracotta ${
+                  isActive ? "font-medium text-terracotta" : "text-ink-soft"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
           <Link
             href="/rsvp"
             className="rounded-full bg-terracotta px-4 py-2 text-sm text-cream transition hover:bg-terracotta/90"
@@ -61,17 +69,23 @@ export default function Navbar() {
       {open && (
         <nav className="sm:hidden border-t border-cream-dark bg-cream px-4 pb-4">
           <ul className="flex flex-col gap-3 pt-3">
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block text-ink-soft"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            {links.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    aria-current={isActive ? "page" : undefined}
+                    className={`block ${
+                      isActive ? "font-medium text-terracotta" : "text-ink-soft"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
             <li>
               <Link
                 href="/rsvp"
