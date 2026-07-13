@@ -112,7 +112,7 @@ export const ourStory = {
   title: "Nuestra historia",
   paragraphs: [
     'Todo empezó como esas películas que luego resultan ser un cliché: un Erasmus en Florencia, demasiado spritz y demasiada pizza como para que saliera mal. Fue en Roma, en febrero de 2021, cuando decidimos que aquello iba en serio: sobrevivir juntos a un viaje ya dice mucho de una pareja. Cuando el Erasmus terminó, la vida no nos lo puso fácil: ella se fue a Málaga y luego a Oviedo a hacerse médico de verdad (el MIR manda), y él a Barcelona a terminar la carrera (o eso dijo). Un par de años a base de trenes, aviones y "nos vemos en dos finde", hasta que ella sacó plaza y aterrizamos los dos en Madrid, que es donde seguimos, ya sin excusas para no vernos.',
-    'Cinco años después de aquel Erasmus, sin haber vuelto a Florencia desde entonces, a él le dio por proponer volver "solo a dar una vuelta". Sospechoso ya de por sí. Acabamos en el Giardino delle Rose, el mirador donde antes nos tomábamos una pizza y un spritz con vistas a la ciudad, y entre muchos nervios (de él, que quede claro) y la misma vista de siempre, hubo anillo, hubo un sí, y aquí estamos: los mismos de Erasmus, con algo más de experiencia y una boda por el medio.',
+    'Cinco años después de aquel Erasmus, sin haber vuelto a Florencia desde entonces, a él le dio por proponer volver "solo a dar una vuelta". Sospechoso ya de por sí. Acabamos en el Giardino delle Rose, el mirador donde antes nos tomábamos una pizza y un spritz con vistas a la ciudad, y entre muchos nervios (de él, que quede claro) y la misma vista de siempre, hubo anillo, hubo un sí, y aquí estamos: los mismos del Erasmus, con algo más de experiencia y una boda por el medio.',
   ],
 };
 

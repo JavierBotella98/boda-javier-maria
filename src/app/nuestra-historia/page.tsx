@@ -8,7 +8,7 @@ export default function NuestraHistoriaPage() {
       <PageHeader title={ourStory.title} />
       <FadeIn className="mx-auto max-w-xl space-y-4 px-4 pb-16 sm:px-6">
         {ourStory.paragraphs.map((paragraph, index) => (
-          <p key={index} className="text-ink-soft leading-relaxed">
+          <p key={index} className="text-ink-soft leading-relaxed text-justify">
             {paragraph}
           </p>
         ))}
