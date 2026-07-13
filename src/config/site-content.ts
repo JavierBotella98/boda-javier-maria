@@ -24,17 +24,18 @@ export const ceremony = {
 };
 
 export const venue = {
-  name: "Finca [pendiente de confirmar]",
+  name: "Hacienda del Álamo",
   address: "[Dirección pendiente]",
-  mapsQuery: "Finca pendiente Malaga",
+  mapsQuery: "Hacienda del Alamo Malaga",
   mapsEmbedUrl:
     "https://www.google.com/maps?q=Malaga&output=embed",
+  parkingNote: "Hay aparcamiento disponible en la Hacienda para coches privados.",
 };
 
 export const hotels = [
   {
     name: "Hotel [pendiente]",
-    description: "A 10 minutos de la finca. Precio orientativo por noche: [pendiente].",
+    description: "A 10 minutos de la Hacienda. Precio orientativo por noche: [pendiente].",
     link: "#",
   },
   {
@@ -47,7 +48,7 @@ export const hotels = [
 export const buses = {
   outbound: {
     label: "Autobús de ida",
-    description: "Iglesia → Finca, tras la ceremonia.",
+    description: "Iglesia → Hacienda, tras la ceremonia.",
   },
   returnTrips: [
     {
@@ -116,7 +117,7 @@ export const faq = [
   {
     question: "¿Hay servicio de autobús?",
     answer:
-      "Sí, habrá autobús de la iglesia a la finca, y de vuelta a Málaga con varios horarios a lo largo de la noche. Puedes indicarlo en el formulario.",
+      "Sí, habrá autobús de la iglesia a la Hacienda, y de vuelta a Málaga con varios horarios a lo largo de la noche. Puedes indicarlo en el formulario.",
   },
   {
     question: "¿Y si tengo alguna alergia o intolerancia?",

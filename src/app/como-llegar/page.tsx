@@ -5,15 +5,18 @@ function LocationBlock({
   title,
   address,
   mapsEmbedUrl,
+  note,
 }: {
   title: string;
   address: string;
   mapsEmbedUrl: string;
+  note?: string;
 }) {
   return (
     <div className="mb-12">
       <h2 className="font-serif text-2xl text-ink">{title}</h2>
       <p className="mt-1 text-ink-soft">{address}</p>
+      {note && <p className="mt-1 text-sm text-ink-soft">{note}</p>}
       <div className="mt-4 overflow-hidden rounded-lg border border-cream-dark">
         <iframe
           src={mapsEmbedUrl}
@@ -46,6 +49,7 @@ export default function ComoLlegarPage() {
           title={venue.name}
           address={venue.address}
           mapsEmbedUrl={venue.mapsEmbedUrl}
+          note={venue.parkingNote}
         />
       </div>
     </div>

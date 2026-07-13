@@ -6,7 +6,7 @@ export default function AlojamientoPage() {
     <div>
       <PageHeader
         title="Alojamiento"
-        subtitle="Algunas opciones de hoteles cerca de la finca y de la iglesia"
+        subtitle="Algunas opciones de hoteles cerca de la Hacienda y de la iglesia"
       />
       <div className="mx-auto max-w-3xl px-4 pb-16 sm:px-6">
         <div className="grid gap-6 sm:grid-cols-2">

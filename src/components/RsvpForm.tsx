@@ -256,7 +256,7 @@ export default function RsvpForm() {
                 checked={busOutbound}
                 onChange={(e) => setBusOutbound(e.target.checked)}
               />
-              Usaré el autobús de ida (iglesia → finca)
+              Usaré el autobús de ida (iglesia → Hacienda)
             </label>
 
             <label className="flex items-center gap-2 text-ink-soft">
@@ -265,7 +265,7 @@ export default function RsvpForm() {
                 checked={busReturn}
                 onChange={(e) => setBusReturn(e.target.checked)}
               />
-              Usaré el autobús de vuelta (finca → {buses.returnDestination})
+              Usaré el autobús de vuelta (Hacienda → {buses.returnDestination})
             </label>
 
             {busReturn && (

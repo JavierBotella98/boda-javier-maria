@@ -43,7 +43,7 @@ export default function Home() {
         </h2>
         <p className="mt-4 text-ink-soft">
           En esta web encontraréis toda la información sobre la ceremonia, la
-          finca, el alojamiento, el transporte y el formulario para confirmar
+          Hacienda, el alojamiento, el transporte y el formulario para confirmar
           vuestra asistencia. ¡Gracias por acompañarnos en este día tan
           especial!
         </p>
