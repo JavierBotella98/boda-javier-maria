@@ -55,23 +55,25 @@ export const buses = {
     {
       id: "primera",
       label: "Primera salida",
-      time: "[hora pendiente]",
-      description: "Justo después de la cena.",
+      time: "19:30h",
+      description: "Al terminar el convite.",
     },
     {
       id: "segunda",
       label: "Segunda salida",
-      time: "[hora pendiente]",
-      description: "Un poco más tarde.",
+      time: "21:30h",
+      description: "Para los que quieran tomar alguna copa y bailar un poco.",
     },
     {
       id: "tercera",
       label: "Última salida",
-      time: "[hora pendiente]",
-      description: "Al final de la fiesta.",
+      time: "01:00h",
+      description: "Para los más valientes: los que vayan directos a Andén.",
     },
   ],
   returnDestination: "Centro de Málaga",
+  returnTimesDisclaimer:
+    "Los horarios de los autobuses son provisionales y podrían sufrir alguna modificación.",
 };
 
 export const dressCode = {

@@ -32,6 +32,9 @@ export default function TransportePage() {
               </div>
             ))}
           </div>
+          <p className="mt-4 text-xs italic text-ink-soft">
+            {buses.returnTimesDisclaimer}
+          </p>
         </FadeIn>
       </div>
     </div>
