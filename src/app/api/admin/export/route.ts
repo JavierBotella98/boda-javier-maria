@@ -24,6 +24,7 @@ export async function GET() {
     "Asiste",
     "Menú",
     "Alergias",
+    "Nº acompañantes",
     "Acompañantes",
     "Bus ida",
     "Bus vuelta",
@@ -38,6 +39,7 @@ export async function GET() {
       response.attending ? "Sí" : "No",
       response.guest_menu_type ?? "",
       response.guest_allergies ?? "",
+      String(response.companions.length),
       response.companions
         .map((c) => `${c.name} (${c.menu_type}${c.allergies ? `, ${c.allergies}` : ""})`)
         .join(" | "),

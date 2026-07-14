@@ -30,9 +30,9 @@ export default async function AdminDashboardPage() {
 
       <div className="mb-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
         <StatCard label="Respuestas" value={stats.totalResponses} />
-        <StatCard label="Asisten" value={stats.confirmedResponses} />
+        <StatCard label="Asisten" value={stats.totalPeople} />
         <StatCard label="No asisten" value={stats.declinedResponses} />
-        <StatCard label="Personas totales" value={stats.totalPeople} />
+        <StatCard label="Grupos confirmados" value={stats.confirmedResponses} />
         <StatCard label="Menú normal" value={stats.normalMenus} />
         <StatCard label="Menú infantil" value={stats.childMenus} />
         <StatCard label="Con alergias" value={stats.withAllergies} />
