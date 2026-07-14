@@ -24,6 +24,23 @@ export type GuestResponse = {
   companions: Companion[];
 };
 
+// Algunos invitados escriben "Nada"/"Ninguna" en vez de dejar el campo en
+// blanco; no deben contar como una alergia real en las estadísticas.
+const NO_ALLERGY_PHRASES = new Set([
+  "nada",
+  "ninguna",
+  "ninguno",
+  "no",
+  "n/a",
+  "na",
+  "-",
+]);
+
+function hasRealAllergy(text: string | null | undefined) {
+  const normalized = text?.trim().toLowerCase() ?? "";
+  return normalized.length > 0 && !NO_ALLERGY_PHRASES.has(normalized);
+}
+
 export async function getGuestResponses(): Promise<GuestResponse[]> {
   const supabase = getSupabaseAdminClient();
   if (!supabase) return [];
@@ -60,12 +77,12 @@ export function computeStats(responses: GuestResponse[]) {
 
     if (response.guest_menu_type === "infantil") childMenus += 1;
     else normalMenus += 1;
-    if (response.guest_allergies?.trim()) withAllergies += 1;
+    if (hasRealAllergy(response.guest_allergies)) withAllergies += 1;
 
     for (const companion of response.companions) {
       if (companion.menu_type === "infantil") childMenus += 1;
       else normalMenus += 1;
-      if (companion.allergies?.trim()) withAllergies += 1;
+      if (hasRealAllergy(companion.allergies)) withAllergies += 1;
     }
 
     if (response.bus_outbound) busOutboundCount += 1;

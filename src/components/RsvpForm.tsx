@@ -192,6 +192,9 @@ export default function RsvpForm() {
                 onChange={(e) => setGuestAllergies(e.target.value)}
                 className="mt-1 w-full rounded-md border border-cream-dark bg-white px-3 py-2 text-ink"
               />
+              <p className="mt-1 text-xs text-ink-soft">
+                Déjalo en blanco si no tienes ninguna.
+              </p>
             </div>
           </div>
 
@@ -263,6 +266,7 @@ export default function RsvpForm() {
                         onChange={(e) =>
                           updateCompanion(index, { allergies: e.target.value })
                         }
+                        placeholder="En blanco si no tiene"
                         className="mt-1 w-full rounded-md border border-cream-dark bg-white px-3 py-2 text-ink"
                       />
                     </div>
@@ -361,6 +365,9 @@ export default function RsvpForm() {
               rows={2}
               className="mt-1 w-full rounded-md border border-cream-dark bg-white px-3 py-2 text-ink"
             />
+            <p className="mt-1 text-xs text-ink-soft">
+              Déjalo en blanco si no tienes ninguna.
+            </p>
           </div>
         </>
       )}
