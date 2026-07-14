@@ -37,6 +37,8 @@ export const accommodation = {
   isPublished: false,
   comingSoonMessage:
     "Estamos trabajando en ello: primero necesitamos saber el número aproximado de habitaciones que se van a necesitar. Intentaremos ofrecer opciones para todos los bolsillos.",
+  rsvpDisclaimer:
+    "Estamos hablando con distintos hoteles del centro de Málaga para ofrecer opciones para todos los bolsillos. En cuanto sepamos cuáles son los definitivos y el precio por noche, os lo haremos saber.",
 };
 
 export const hotels = [

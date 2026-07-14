@@ -27,6 +27,8 @@ export async function GET() {
     "Acompañantes",
     "Bus ida",
     "Bus vuelta",
+    "Necesita hotel",
+    "Personas hotel",
     "Necesidades especiales",
   ];
 
@@ -41,6 +43,8 @@ export async function GET() {
         .join(" | "),
       response.bus_outbound ? "Sí" : "No",
       response.bus_return ? response.bus_return_trip_id ?? "Sí" : "No",
+      response.needs_hotel ? "Sí" : "No",
+      response.needs_hotel ? String(response.hotel_guests_count) : "0",
       response.special_needs ?? "",
     ])
   );

@@ -12,6 +12,8 @@ create table if not exists guests_responses (
   bus_outbound boolean not null default false,
   bus_return boolean not null default false,
   bus_return_trip_id text,
+  needs_hotel boolean not null default false,
+  hotel_guests_count integer not null default 0,
   special_needs text default '',
   privacy_consent boolean not null,
   created_at timestamptz not null default now()

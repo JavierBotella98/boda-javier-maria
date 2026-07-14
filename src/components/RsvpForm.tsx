@@ -2,7 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import Link from "next/link";
-import { buses, rsvpForm } from "@/config/site-content";
+import { accommodation, buses, rsvpForm } from "@/config/site-content";
 
 type Companion = {
   name: string;
@@ -25,6 +25,8 @@ export default function RsvpForm() {
   const [busOutbound, setBusOutbound] = useState(false);
   const [busReturn, setBusReturn] = useState(false);
   const [busReturnTripId, setBusReturnTripId] = useState(buses.returnTrips[0]?.id ?? "");
+  const [needsHotel, setNeedsHotel] = useState(false);
+  const [hotelGuestsCount, setHotelGuestsCount] = useState(1);
   const [specialNeeds, setSpecialNeeds] = useState("");
   const [privacyConsent, setPrivacyConsent] = useState(false);
   const [website, setWebsite] = useState(""); // honeypot
@@ -78,6 +80,8 @@ export default function RsvpForm() {
           busOutbound: attending ? busOutbound : false,
           busReturn: attending ? busReturn : false,
           busReturnTripId: attending && busReturn ? busReturnTripId : undefined,
+          needsHotel: attending ? needsHotel : false,
+          hotelGuestsCount: attending && needsHotel ? hotelGuestsCount : 0,
           specialNeeds: attending ? specialNeeds : "",
           privacyConsent,
           website,
@@ -302,6 +306,48 @@ export default function RsvpForm() {
                 ))}
               </div>
             )}
+          </div>
+
+          <div className="space-y-3">
+            <label className="flex items-center gap-2 text-ink-soft">
+              <input
+                type="checkbox"
+                checked={needsHotel}
+                onChange={(e) => setNeedsHotel(e.target.checked)}
+              />
+              Necesitaré habitación de hotel
+            </label>
+
+            {needsHotel && (
+              <div className="ml-6">
+                <span className="block text-sm text-ink">¿Para cuántas personas?</span>
+                <div className="mt-1 flex items-center gap-4">
+                  <button
+                    type="button"
+                    onClick={() => setHotelGuestsCount((n) => Math.max(1, n - 1))}
+                    disabled={hotelGuestsCount <= 1}
+                    aria-label="Quitar persona"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-terracotta text-lg text-terracotta transition hover:bg-terracotta hover:text-cream disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-terracotta"
+                  >
+                    −
+                  </button>
+                  <span className="w-6 text-center font-serif text-xl text-ink">
+                    {hotelGuestsCount}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setHotelGuestsCount((n) => Math.min(10, n + 1))}
+                    disabled={hotelGuestsCount >= 10}
+                    aria-label="Añadir persona"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-terracotta text-lg text-terracotta transition hover:bg-terracotta hover:text-cream disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-terracotta"
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+            )}
+
+            <p className="text-xs italic text-ink-soft">{accommodation.rsvpDisclaimer}</p>
           </div>
 
           <div>

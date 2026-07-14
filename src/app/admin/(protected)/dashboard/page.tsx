@@ -37,6 +37,8 @@ export default async function AdminDashboardPage() {
         <StatCard label="Menú infantil" value={stats.childMenus} />
         <StatCard label="Con alergias" value={stats.withAllergies} />
         <StatCard label="Bus ida" value={stats.busOutboundCount} />
+        <StatCard label="Piden hotel" value={stats.hotelRequests} />
+        <StatCard label="Personas con hotel" value={stats.hotelGuestsTotal} />
       </div>
 
       <div className="mb-10">
@@ -64,13 +66,14 @@ export default async function AdminDashboardPage() {
               <th className="p-3">Acompañantes</th>
               <th className="p-3">Bus ida</th>
               <th className="p-3">Bus vuelta</th>
+              <th className="p-3">Hotel</th>
               <th className="p-3">Necesidades especiales</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-cream-dark">
             {responses.length === 0 && (
               <tr>
-                <td colSpan={8} className="p-6 text-center text-ink-soft">
+                <td colSpan={9} className="p-6 text-center text-ink-soft">
                   Todavía no hay confirmaciones.
                 </td>
               </tr>
@@ -91,6 +94,9 @@ export default async function AdminDashboardPage() {
                 <td className="p-3">{response.bus_outbound ? "Sí" : "No"}</td>
                 <td className="p-3">
                   {response.bus_return ? response.bus_return_trip_id ?? "Sí" : "No"}
+                </td>
+                <td className="p-3">
+                  {response.needs_hotel ? `Sí (${response.hotel_guests_count})` : "No"}
                 </td>
                 <td className="p-3">{response.special_needs || "-"}</td>
               </tr>

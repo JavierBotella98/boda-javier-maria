@@ -15,6 +15,8 @@ export const rsvpSchema = z.object({
   busOutbound: z.boolean().default(false),
   busReturn: z.boolean().default(false),
   busReturnTripId: z.string().optional(),
+  needsHotel: z.boolean().default(false),
+  hotelGuestsCount: z.number().int().min(0).max(20).default(0),
   specialNeeds: z.string().trim().max(500).optional().default(""),
   privacyConsent: z.literal(true, {
     error: "Debes aceptar el aviso de privacidad para poder enviar el formulario",

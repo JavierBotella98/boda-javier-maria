@@ -17,6 +17,8 @@ export type GuestResponse = {
   bus_outbound: boolean;
   bus_return: boolean;
   bus_return_trip_id: string | null;
+  needs_hotel: boolean;
+  hotel_guests_count: number;
   special_needs: string;
   created_at: string;
   companions: Companion[];
@@ -48,6 +50,8 @@ export function computeStats(responses: GuestResponse[]) {
   let childMenus = 0;
   let withAllergies = 0;
   let busOutboundCount = 0;
+  let hotelRequests = 0;
+  let hotelGuestsTotal = 0;
   const busReturnByTrip: Record<string, number> = {};
   for (const trip of buses.returnTrips) busReturnByTrip[trip.id] = 0;
 
@@ -69,6 +73,10 @@ export function computeStats(responses: GuestResponse[]) {
       busReturnByTrip[response.bus_return_trip_id] =
         (busReturnByTrip[response.bus_return_trip_id] ?? 0) + 1;
     }
+    if (response.needs_hotel) {
+      hotelRequests += 1;
+      hotelGuestsTotal += response.hotel_guests_count;
+    }
   }
 
   return {
@@ -81,5 +89,7 @@ export function computeStats(responses: GuestResponse[]) {
     withAllergies,
     busOutboundCount,
     busReturnByTrip,
+    hotelRequests,
+    hotelGuestsTotal,
   };
 }

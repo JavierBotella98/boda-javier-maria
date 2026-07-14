@@ -45,6 +45,8 @@ export async function POST(request: Request) {
       bus_outbound: rsvp.busOutbound,
       bus_return: rsvp.busReturn,
       bus_return_trip_id: rsvp.busReturnTripId ?? null,
+      needs_hotel: rsvp.needsHotel,
+      hotel_guests_count: rsvp.needsHotel ? rsvp.hotelGuestsCount : 0,
       special_needs: rsvp.specialNeeds,
       privacy_consent: rsvp.privacyConsent,
     })
