@@ -33,6 +33,12 @@ export const venue = {
   parkingNote: "Hay aparcamiento disponible en la Hacienda para coches privados.",
 };
 
+export const accommodation = {
+  isPublished: false,
+  comingSoonMessage:
+    "Estamos trabajando en ello: primero necesitamos saber el número aproximado de habitaciones que se van a necesitar. Intentaremos ofrecer opciones para todos los bolsillos.",
+};
+
 export const hotels = [
   {
     name: "Hotel [pendiente]",
