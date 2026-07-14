@@ -32,13 +32,25 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="sm:hidden rounded-md border border-cream-dark p-2 text-ink"
-          aria-label="Abrir menú"
+          className="sm:hidden rounded-md border border-cream-dark p-2 text-ink transition-transform active:scale-90 active:bg-cream-dark"
+          aria-label={open ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={open}
         >
-          <span className="block h-0.5 w-5 bg-ink mb-1" />
-          <span className="block h-0.5 w-5 bg-ink mb-1" />
-          <span className="block h-0.5 w-5 bg-ink" />
+          <span
+            className={`block h-0.5 w-5 bg-ink transition-transform duration-200 mb-1 ${
+              open ? "translate-y-[6px] rotate-45" : ""
+            }`}
+          />
+          <span
+            className={`block h-0.5 w-5 bg-ink transition-opacity duration-200 mb-1 ${
+              open ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`block h-0.5 w-5 bg-ink transition-transform duration-200 ${
+              open ? "-translate-y-[6px] -rotate-45" : ""
+            }`}
+          />
         </button>
 
         <nav className="hidden sm:flex sm:items-center sm:gap-4 lg:gap-5">
