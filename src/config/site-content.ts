@@ -101,7 +101,7 @@ export const dressCode = {
 };
 
 export const timeline = [
-  { time: "13:00h", event: "Ceremonia religiosa en la Iglesia de San Juan", icon: "⛪" },
+  { time: "13:00h", event: "Celebración del matrimonio en la Iglesia de San Juan", icon: "⛪" },
   { time: "14:30h", event: "Salida de los autobuses hacia la Hacienda", icon: "🚌" },
   { time: "15:00h", event: "Cóctel de bienvenida", icon: "🥂" },
   { time: "17:00h", event: "Banquete", icon: "🍽️" },
