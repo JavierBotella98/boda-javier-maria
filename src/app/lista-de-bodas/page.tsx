@@ -19,6 +19,7 @@ export default function ListaDeBodasPage() {
             </p>
             <CopyIbanButton iban={giftRegistry.iban} />
           </div>
+          <p className="mt-4 text-sm text-ink-soft">{giftRegistry.inPersonNote}</p>
         </FadeIn>
       </div>
     </div>

@@ -112,10 +112,11 @@ export const timeline = [
 export const giftRegistry = {
   title: "Lista de bodas",
   message:
-    "Vuestra presencia es el mejor regalo, pero si queréis contribuir a nuestro viaje de novios, podéis hacerlo en este número de cuenta:",
+    "Vuestra presencia es el mejor regalo, pero si queréis contribuir, podéis hacerlo en este número de cuenta:",
   iban: "ES71 0128 8700 1701 0569 4217",
   bank: "Bankinter",
   accountHolder: "Javier y María",
+  inPersonNote: "Si deseas hacerlo en persona, también se aceptan Soles y Chistorras 😉🌹",
 };
 
 export const ourStory = {

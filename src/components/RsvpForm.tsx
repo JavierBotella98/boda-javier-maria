@@ -113,6 +113,23 @@ export default function RsvpForm() {
         >
           Volver al inicio
         </Link>
+        <div className="mt-6 flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm">
+          <Link href="/como-llegar" className="text-terracotta underline hover:no-underline">
+            Cómo llegar
+          </Link>
+          <Link href="/lista-de-bodas" className="text-terracotta underline hover:no-underline">
+            Lista de bodas
+          </Link>
+          <Link href="/timeline" className="text-terracotta underline hover:no-underline">
+            Programa
+          </Link>
+          <Link href="/vestimenta" className="text-terracotta underline hover:no-underline">
+            Vestimenta
+          </Link>
+          <Link href="/nuestra-historia" className="text-terracotta underline hover:no-underline">
+            Nuestra historia
+          </Link>
+        </div>
       </div>
     );
   }
