@@ -29,7 +29,23 @@ export default function Countdown() {
 
   useEffect(() => {
     const interval = setInterval(() => setRemaining(getRemaining()), 60_000);
-    return () => clearInterval(interval);
+
+    // Los navegadores móviles pausan los temporizadores en segundo plano
+    // para ahorrar batería. Al volver a la pestaña, recalculamos al
+    // instante en vez de esperar a que el intervalo se retome por su cuenta.
+    function handleVisibilityChange() {
+      if (document.visibilityState === "visible") {
+        setRemaining(getRemaining());
+      }
+    }
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    window.addEventListener("focus", handleVisibilityChange);
+
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener("focus", handleVisibilityChange);
+    };
   }, []);
 
   if (remaining.arrived) {
