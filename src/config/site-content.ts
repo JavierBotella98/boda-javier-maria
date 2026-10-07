@@ -34,23 +34,62 @@ export const venue = {
 };
 
 export const accommodation = {
-  isPublished: false,
-  comingSoonMessage:
-    "Estamos trabajando en ello: primero necesitamos saber el número aproximado de habitaciones que se van a necesitar. Intentaremos ofrecer opciones para todos los bolsillos.",
+  subtitle: "Cada uno se encarga de su alojamiento, pero os echamos una mano",
+  intro:
+    "No hemos cerrado ningún acuerdo con hoteles, así que cada uno tendrá que buscar su propio alojamiento. Os recomendamos empezar por Booking o Airbnb, donde hay opciones para todos los bolsillos, y reservar con tiempo.",
+  searchLinks: [
+    {
+      label: "Buscar en Booking",
+      href: "https://www.booking.com/searchresults.es.html?ss=M%C3%A1laga",
+    },
+    {
+      label: "Buscar en Airbnb",
+      href: "https://www.airbnb.es/s/M%C3%A1laga/homes",
+    },
+  ],
+  hotelsTitle: "Hoteles recomendados cerca de la iglesia",
+  hotelsIntro:
+    "Si preferís un hotel, estos son algunos que nos parecen buena opción. Os indicamos el tiempo andando hasta la Iglesia de San Juan.",
   rsvpDisclaimer:
     "Estamos hablando con distintos hoteles del centro de Málaga para ofrecer opciones para todos los bolsillos. En cuanto sepamos cuáles son los definitivos y el precio por noche, os lo haremos saber.",
 };
 
+// Ordenados del más cercano al más lejano de la iglesia.
 export const hotels = [
   {
-    name: "Hotel [pendiente]",
-    description: "A 10 minutos de la Hacienda. Precio orientativo por noche: [pendiente].",
-    link: "#",
+    name: "Sercotel Tribuna Málaga",
+    stars: 3,
+    walkingMinutes: 5,
+    coords: { lat: 36.7216452, lng: -4.4249068 },
+    mapsUrl: "https://maps.app.goo.gl/P5e7opaf7EUQaruX7",
   },
   {
-    name: "Hotel [pendiente]",
-    description: "En el centro de Málaga, cerca de la iglesia. Precio orientativo por noche: [pendiente].",
-    link: "#",
+    name: "H10 Croma Málaga",
+    stars: 4,
+    walkingMinutes: 5,
+    coords: { lat: 36.7179072, lng: -4.4253644 },
+    mapsUrl: "https://maps.app.goo.gl/LDiA8BuiG438zdAR6",
+  },
+  {
+    name: "Hotel Soho Boutique Bahía Málaga",
+    stars: 4,
+    walkingMinutes: 10,
+    coords: { lat: 36.7155561, lng: -4.4235968 },
+    mapsUrl: "https://maps.app.goo.gl/oC6h6zQja5AkP1717",
+  },
+  {
+    name: "Hotel ILUNION Málaga",
+    stars: 4,
+    walkingMinutes: 20,
+    coords: { lat: 36.7105769, lng: -4.4273599 },
+    mapsUrl: "https://maps.app.goo.gl/81WWJPVT77PxsG2M6",
+  },
+  {
+    name: "Hotel MS Maestranza Málaga Centro",
+    stars: 4,
+    walkingMinutes: 20,
+    coords: { lat: 36.7197319, lng: -4.4114139 },
+    mapsUrl: "https://maps.app.goo.gl/iK83mANUo1Bbtv8w5",
   },
 ];
 
