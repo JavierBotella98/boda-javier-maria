@@ -92,6 +92,8 @@ export const buses = {
     tercera: "01:00h",
   } as Record<string, string>,
   returnDestination: "Centro de Málaga",
+  returnAlternative:
+    "La Hacienda del Álamo está a unos 15 minutos en coche del centro de Málaga. Si prefieres volver antes, siempre puedes llamar a un taxi o a un Uber.",
   returnTimesDisclaimer:
     "Los horarios de los autobuses son aproximados y podrían sufrir alguna modificación.",
 };
