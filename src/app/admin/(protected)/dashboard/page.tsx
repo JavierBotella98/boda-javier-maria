@@ -1,4 +1,4 @@
-import { getGuestResponses, computeStats } from "@/lib/admin-data";
+import { getGuestResponses, computeStats, formatReturnTrip } from "@/lib/admin-data";
 import { buses } from "@/config/site-content";
 
 export const dynamic = "force-dynamic";
@@ -52,6 +52,13 @@ export default async function AdminDashboardPage() {
             />
           ))}
         </div>
+        {stats.legacyBusReturnCount > 0 && (
+          <p className="mt-3 text-sm text-terracotta">
+            {stats.legacyBusReturnCount} respuesta(s) eligieron un horario de vuelta que ya no
+            existe (19:30h, 21:30h o 01:00h). Aparecen marcadas como &quot;horario cancelado&quot;
+            en el listado: conviene avisarles para que elijan una de las nuevas salidas.
+          </p>
+        )}
       </div>
 
       <h2 className="mb-3 font-serif text-xl text-ink">Listado de respuestas</h2>
@@ -93,7 +100,7 @@ export default async function AdminDashboardPage() {
                 </td>
                 <td className="p-3">{response.bus_outbound ? "Sí" : "No"}</td>
                 <td className="p-3">
-                  {response.bus_return ? response.bus_return_trip_id ?? "Sí" : "No"}
+                  {response.bus_return ? formatReturnTrip(response.bus_return_trip_id) : "No"}
                 </td>
                 <td className="p-3">
                   {response.needs_hotel ? `Sí (${response.hotel_guests_count})` : "No"}

@@ -1,5 +1,5 @@
 import { isAdminAuthenticated } from "@/lib/require-admin";
-import { getGuestResponses } from "@/lib/admin-data";
+import { getGuestResponses, formatReturnTrip } from "@/lib/admin-data";
 
 function csvEscape(value: string) {
   if (/[",\n;]/.test(value)) {
@@ -44,7 +44,7 @@ export async function GET() {
         .map((c) => `${c.name} (${c.menu_type}${c.allergies ? `, ${c.allergies}` : ""})`)
         .join(" | "),
       response.bus_outbound ? "Sí" : "No",
-      response.bus_return ? response.bus_return_trip_id ?? "Sí" : "No",
+      response.bus_return ? formatReturnTrip(response.bus_return_trip_id) : "No",
       response.needs_hotel ? "Sí" : "No",
       response.needs_hotel ? String(response.hotel_guests_count) : "0",
       response.special_needs ?? "",

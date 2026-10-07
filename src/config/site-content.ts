@@ -59,29 +59,41 @@ export const buses = {
     label: "Autobús de ida",
     description: "Iglesia → Hacienda, tras la ceremonia.",
   },
+  // Solo hay autobús de vuelta al final de la celebración, en tres salidas
+  // aproximadas. Los ids son nuevos a propósito: las respuestas anteriores
+  // usan "primera/segunda/tercera" con otros horarios (ver legacyReturnTrips).
+  returnIntro:
+    "Habrá autobús de vuelta únicamente al final de la celebración, con tres salidas aproximadas. Elige la que mejor te venga al confirmar tu asistencia.",
   returnTrips: [
     {
-      id: "primera",
+      id: "salida-0030",
       label: "Primera salida",
-      time: "19:30h",
-      description: "Al terminar el convite.",
+      time: "00:30h",
+      description: "",
     },
     {
-      id: "segunda",
+      id: "salida-0100",
       label: "Segunda salida",
-      time: "21:30h",
-      description: "Para los que quieran tomar alguna copa y bailar un poco.",
+      time: "01:00h",
+      description: "",
     },
     {
-      id: "tercera",
+      id: "salida-0130",
       label: "Última salida",
-      time: "01:00h",
+      time: "01:30h",
       description: "Para los más valientes: los que vayan directos a Andén.",
     },
   ],
+  // Horarios que se ofrecieron antes y ya no existen. Sirven para reconocer
+  // las respuestas antiguas en el panel de administración.
+  legacyReturnTrips: {
+    primera: "19:30h",
+    segunda: "21:30h",
+    tercera: "01:00h",
+  } as Record<string, string>,
   returnDestination: "Centro de Málaga",
   returnTimesDisclaimer:
-    "Los horarios de los autobuses son provisionales y podrían sufrir alguna modificación.",
+    "Los horarios de los autobuses son aproximados y podrían sufrir alguna modificación.",
 };
 
 export const dressCode = {
@@ -141,7 +153,7 @@ export const faq = [
   {
     question: "¿Hay servicio de autobús?",
     answer:
-      "Sí, habrá autobús de la iglesia a la Hacienda, y de vuelta a Málaga con varios horarios a lo largo de la noche. Puedes indicarlo en el formulario.",
+      "Sí, habrá autobús de la iglesia a la Hacienda, y de vuelta al centro de Málaga al final de la celebración (sobre las 00:30, 01:00 y 01:30). Puedes indicarlo en el formulario.",
   },
   {
     question: "¿Y si tengo alguna alergia o intolerancia?",

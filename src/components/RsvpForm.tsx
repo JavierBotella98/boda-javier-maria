@@ -322,7 +322,7 @@ export default function RsvpForm() {
                       checked={busReturnTripId === trip.id}
                       onChange={() => setBusReturnTripId(trip.id)}
                     />
-                    {trip.label} ({trip.time})
+                    {trip.label} (sobre las {trip.time})
                   </label>
                 ))}
               </div>
