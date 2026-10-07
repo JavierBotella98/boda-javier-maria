@@ -1,6 +1,33 @@
 import PageHeader from "@/components/PageHeader";
 import FadeIn from "@/components/FadeIn";
-import { ceremony, venue } from "@/config/site-content";
+import { ceremony, churchParking, venue } from "@/config/site-content";
+
+function ParkingInfo() {
+  return (
+    <div className="mt-6 rounded-lg border border-cream-dark bg-cream-dark/30 p-5">
+      <h3 className="font-serif text-xl text-ink">🚗 {churchParking.title}</h3>
+      <p className="mt-2 text-sm text-ink-soft">{churchParking.intro}</p>
+      <ul className="mt-3 space-y-2">
+        {churchParking.options.map((parking) => (
+          <li
+            key={parking.mapsUrl}
+            className="flex flex-wrap items-center justify-between gap-2 text-sm"
+          >
+            <span className="text-ink">{parking.name}</span>
+            <a
+              href={parking.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-terracotta px-3 py-1 text-xs text-terracotta transition hover:bg-terracotta hover:text-cream"
+            >
+              Ver en Google Maps
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 function LocationBlock({
   title,
@@ -8,12 +35,14 @@ function LocationBlock({
   mapsEmbedUrl,
   coords,
   note,
+  children,
 }: {
   title: string;
   address: string;
   mapsEmbedUrl: string;
   coords: { lat: number; lng: number };
   note?: string;
+  children?: React.ReactNode;
 }) {
   const googleDirectionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${coords.lat},${coords.lng}`;
   const appleMapsUrl = `https://maps.apple.com/?daddr=${coords.lat},${coords.lng}`;
@@ -52,6 +81,7 @@ function LocationBlock({
           Abrir en Apple Maps
         </a>
       </div>
+      {children}
     </div>
   );
 }
@@ -70,7 +100,9 @@ export default function ComoLlegarPage() {
             address={ceremony.address}
             mapsEmbedUrl={ceremony.mapsEmbedUrl}
             coords={ceremony.coords}
-          />
+          >
+            <ParkingInfo />
+          </LocationBlock>
         </FadeIn>
         <FadeIn>
           <LocationBlock

@@ -23,6 +23,27 @@ export const ceremony = {
     "https://www.google.com/maps?q=36.720463,-4.4233903&z=17&output=embed",
 };
 
+// Aparcamientos cercanos a la iglesia (ordenados de más cerca a más lejos).
+export const churchParking = {
+  title: "Si venís en coche",
+  intro:
+    "La iglesia se encuentra en el casco histórico de Málaga, por lo que no se puede acceder con vehículo privado. Hay varios aparcamientos a pocos minutos andando:",
+  options: [
+    {
+      name: "Parking Plaza Enrique García-Herrera",
+      mapsUrl: "https://maps.app.goo.gl/2UM6FbPKMUCR68pE6",
+    },
+    {
+      name: "Parking Camas",
+      mapsUrl: "https://maps.app.goo.gl/tVVJKZRUUD5JADFn7",
+    },
+    {
+      name: "Parking Mármoles",
+      mapsUrl: "https://maps.app.goo.gl/YUma2eajpaMKT7au9",
+    },
+  ],
+};
+
 export const venue = {
   name: "Hacienda del Álamo",
   address: "Cam. de Casabermeja, 130, Cdad. Jardín, 29014 Málaga",
