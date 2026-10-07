@@ -34,9 +34,9 @@ export const venue = {
 };
 
 export const accommodation = {
-  subtitle: "Cada uno se encarga de su alojamiento, pero os echamos una mano",
+  subtitle: "Algunas ideas para vuestra estancia en Málaga",
   intro:
-    "No hemos cerrado ningún acuerdo con hoteles, así que cada uno tendrá que buscar su propio alojamiento. Os recomendamos empezar por Booking o Airbnb, donde hay opciones para todos los bolsillos, y reservar con tiempo.",
+    "Para alojaros, os recomendamos buscar en Booking o Airbnb, donde encontraréis opciones para todos los gustos y presupuestos.",
   searchLinks: [
     {
       label: "Buscar en Booking",
@@ -49,7 +49,7 @@ export const accommodation = {
   ],
   hotelsTitle: "Hoteles recomendados cerca de la iglesia",
   hotelsIntro:
-    "Si preferís un hotel, estos son algunos que nos parecen buena opción. Os indicamos el tiempo andando hasta la Iglesia de San Juan.",
+    "Si preferís un hotel, os dejamos algunas opciones de distintas categorías cerca de la iglesia, con el tiempo que se tarda en llegar andando hasta ella.",
   rsvpDisclaimer:
     "Estamos hablando con distintos hoteles del centro de Málaga para ofrecer opciones para todos los bolsillos. En cuanto sepamos cuáles son los definitivos y el precio por noche, os lo haremos saber.",
 };
