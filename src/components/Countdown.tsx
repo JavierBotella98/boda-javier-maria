@@ -1,65 +1,78 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { wedding } from "@/config/site-content";
 
-const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+const ONE_MINUTE_MS = 60_000;
+const ONE_DAY_MS = 24 * 60 * ONE_MINUTE_MS;
+const TARGET_MS = new Date(wedding.dateTimeIso).getTime();
 
-function getRemaining() {
-  const target = new Date(wedding.dateTimeIso).getTime();
-  const diff = target - Date.now();
-
-  if (diff <= 0) {
-    return { arrived: true as const, sameDay: diff > -ONE_DAY_MS };
+// La página se genera de forma estática en el despliegue, así que el HTML del
+// servidor lleva la hora del build. Para que nunca se muestre un valor
+// congelado, el servidor no pinta números (snapshot null) y el navegador los
+// calcula con su propia hora justo tras hidratar, sin ningún desajuste que
+// React tenga que "tolerar".
+function subscribe(onChange: () => void) {
+  // Se programa cada aviso justo en el siguiente cambio de minuto del reloj,
+  // para que el contador nunca vaya por detrás.
+  let timeout: ReturnType<typeof setTimeout>;
+  function scheduleNext() {
+    const msToNextMinute = ONE_MINUTE_MS - (Date.now() % ONE_MINUTE_MS);
+    timeout = setTimeout(() => {
+      onChange();
+      scheduleNext();
+    }, msToNextMinute + 50);
   }
+  scheduleNext();
 
-  return {
-    arrived: false as const,
-    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
-    minutes: Math.floor((diff / (1000 * 60)) % 60),
+  // Los navegadores móviles pausan los temporizadores en segundo plano; al
+  // volver a la pestaña se recalcula al instante.
+  function handleVisible() {
+    if (document.visibilityState === "visible") onChange();
+  }
+  document.addEventListener("visibilitychange", handleVisible);
+  window.addEventListener("focus", handleVisible);
+
+  return () => {
+    clearTimeout(timeout);
+    document.removeEventListener("visibilitychange", handleVisible);
+    window.removeEventListener("focus", handleVisible);
   };
 }
 
+// Minuto actual como número (cambia una vez por minuto, comparable por valor).
+// Se redondea hacia arriba para que, al restarlo de la fecha objetivo (que cae
+// justo en un minuto exacto), los minutos mostrados sean los que de verdad
+// faltan completos (p. ej. 7 min 37 s restantes se muestran como 7).
+function getSnapshot() {
+  return Math.ceil(Date.now() / ONE_MINUTE_MS);
+}
+
+function getServerSnapshot() {
+  return null;
+}
+
 export default function Countdown() {
-  // Valor inicial calculado en el primer render (servidor y cliente). El
-  // servidor y el cliente pueden diferir en unos segundos/minutos, por lo
-  // que se usa suppressHydrationWarning en los valores mostrados.
-  const [remaining, setRemaining] = useState(() => getRemaining());
+  const nowMinute = useSyncExternalStore<number | null>(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot
+  );
 
-  useEffect(() => {
-    const interval = setInterval(() => setRemaining(getRemaining()), 60_000);
+  const diff = nowMinute === null ? null : TARGET_MS - nowMinute * ONE_MINUTE_MS;
 
-    // Los navegadores móviles pausan los temporizadores en segundo plano
-    // para ahorrar batería. Al volver a la pestaña, recalculamos al
-    // instante en vez de esperar a que el intervalo se retome por su cuenta.
-    function handleVisibilityChange() {
-      if (document.visibilityState === "visible") {
-        setRemaining(getRemaining());
-      }
-    }
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-    window.addEventListener("focus", handleVisibilityChange);
-
-    return () => {
-      clearInterval(interval);
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
-      window.removeEventListener("focus", handleVisibilityChange);
-    };
-  }, []);
-
-  if (remaining.arrived) {
+  if (diff !== null && diff <= 0) {
     return (
-      <p className="font-serif text-2xl text-terracotta sm:text-3xl" suppressHydrationWarning>
-        {remaining.sameDay ? "¡Hoy es el gran día! 🎉" : "¡Ya nos hemos casado! 💍"}
+      <p className="font-serif text-2xl text-terracotta sm:text-3xl">
+        {diff > -ONE_DAY_MS ? "¡Hoy es el gran día! 🎉" : "¡Ya nos hemos casado! 💍"}
       </p>
     );
   }
 
   const items = [
-    { value: remaining.days, label: "días" },
-    { value: remaining.hours, label: "horas" },
-    { value: remaining.minutes, label: "min" },
+    { value: diff === null ? 0 : Math.floor(diff / ONE_DAY_MS), label: "días" },
+    { value: diff === null ? 0 : Math.floor((diff / (60 * ONE_MINUTE_MS)) % 24), label: "horas" },
+    { value: diff === null ? 0 : Math.floor((diff / ONE_MINUTE_MS) % 60), label: "min" },
   ];
 
   return (
@@ -67,8 +80,9 @@ export default function Countdown() {
       {items.map((item) => (
         <div key={item.label} className="text-center">
           <span
-            className="block font-serif text-3xl sm:text-4xl text-terracotta"
-            suppressHydrationWarning
+            className={`block font-serif text-3xl sm:text-4xl text-terracotta ${
+              diff === null ? "invisible" : ""
+            }`}
           >
             {item.value}
           </span>
