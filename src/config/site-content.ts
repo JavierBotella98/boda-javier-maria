@@ -144,13 +144,14 @@ export const buses = {
       description: "Para los más valientes: los que vayan directos a Andén.",
     },
   ],
-  // Horarios que se ofrecieron antes y ya no existen. Sirven para reconocer
-  // las respuestas antiguas en el panel de administración.
+  // Horarios que se ofrecieron antes. Sirven para interpretar las respuestas
+  // antiguas en el panel. Si "mapsTo" existe, esa hora sigue ofreciéndose y la
+  // respuesta cuenta como esa salida; si no, el horario se canceló.
   legacyReturnTrips: {
-    primera: "19:30h",
-    segunda: "21:30h",
-    tercera: "01:00h",
-  } as Record<string, string>,
+    primera: { time: "19:30h" },
+    segunda: { time: "21:30h" },
+    tercera: { time: "01:00h", mapsTo: "salida-0100" },
+  } as Record<string, { time: string; mapsTo?: string }>,
   returnDestination: "Centro de Málaga",
   returnAlternative:
     "La Hacienda del Álamo está a unos 15 minutos en coche del centro de Málaga. Si prefieres volver antes, siempre puedes llamar a un taxi o a un Uber.",

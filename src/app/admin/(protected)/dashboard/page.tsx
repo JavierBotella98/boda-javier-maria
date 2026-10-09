@@ -55,7 +55,7 @@ export default async function AdminDashboardPage() {
         {stats.legacyBusReturnCount > 0 && (
           <p className="mt-3 text-sm text-terracotta">
             {stats.legacyBusReturnCount} respuesta(s) eligieron un horario de vuelta que ya no
-            existe (19:30h, 21:30h o 01:00h). Aparecen marcadas como &quot;horario cancelado&quot;
+            existe (19:30h o 21:30h). Aparecen marcadas como &quot;horario cancelado&quot;
             en el listado: conviene avisarles para que elijan una de las nuevas salidas.
           </p>
         )}

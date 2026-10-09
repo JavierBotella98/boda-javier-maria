@@ -58,13 +58,23 @@ export async function getGuestResponses(): Promise<GuestResponse[]> {
   return data as GuestResponse[];
 }
 
-// Texto legible de la franja de vuelta elegida. Las franjas antiguas (ya
-// canceladas) se marcan para poder avisar a quien las eligió.
+// Resuelve la franja guardada: si era una franja antigua cuya hora sigue
+// existiendo, equivale a la nueva; si se canceló, devuelve null.
+function resolveTripId(id: string) {
+  const legacy = buses.legacyReturnTrips[id];
+  if (!legacy) return id;
+  return legacy.mapsTo ?? null;
+}
+
+// Texto legible de la franja de vuelta elegida. Las franjas antiguas ya
+// canceladas se marcan para poder avisar a quien las eligió.
 export function formatReturnTrip(id: string | null) {
   if (!id) return "Sí";
-  const legacyTime = buses.legacyReturnTrips[id];
-  if (legacyTime) return `${legacyTime} (horario cancelado, reconfirmar)`;
-  const trip = buses.returnTrips.find((t) => t.id === id);
+  const resolved = resolveTripId(id);
+  if (resolved === null) {
+    return `${buses.legacyReturnTrips[id].time} (horario cancelado, reconfirmar)`;
+  }
+  const trip = buses.returnTrips.find((t) => t.id === resolved);
   return trip ? `${trip.time} aprox.` : id;
 }
 
@@ -98,11 +108,11 @@ export function computeStats(responses: GuestResponse[]) {
 
     if (response.bus_outbound) busOutboundCount += 1;
     if (response.bus_return && response.bus_return_trip_id) {
-      if (response.bus_return_trip_id in buses.legacyReturnTrips) {
+      const tripId = resolveTripId(response.bus_return_trip_id);
+      if (tripId === null) {
         legacyBusReturnCount += 1;
       } else {
-        busReturnByTrip[response.bus_return_trip_id] =
-          (busReturnByTrip[response.bus_return_trip_id] ?? 0) + 1;
+        busReturnByTrip[tripId] = (busReturnByTrip[tripId] ?? 0) + 1;
       }
     }
     if (response.needs_hotel) {
